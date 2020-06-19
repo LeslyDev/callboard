@@ -3,7 +3,7 @@ Django+Mongodb+Redis(for caching)
 
 Перед запуском приложения необходимо:
     1. Запустить докер контейнер с redis командой:
-        docker run --name redis-instance --rm -d -p 6379:6379 redis:5.0.7 redis-server --appendonly yes
+        docker run --name redis-instance --rm -d -p 6379:6379 redis:5.0.7 redis-server
     2. В папке settings.py в разделе DATABASES указать имя вашей базы данных Mongodb
 
 Функционал:
