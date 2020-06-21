@@ -6,13 +6,13 @@ from callboard_app.models import Announcement, Comment, Tag
 class AnnouncementForm(forms.ModelForm):
     class Meta:
         model = Announcement
-        fields = '__all__'
+        fields = ['topic', 'slug', 'text_of_announcement', 'tags']
 
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['text']
+        fields = ['text', 'author_of_comment']
 
 
 class TagForm(forms.ModelForm):

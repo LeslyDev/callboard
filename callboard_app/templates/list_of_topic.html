@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <h1> Список объявлений </h1>   <br>
+    {% if username %} Добро пожаловать {{ username }}! <a href="{% url 'logout' %}">Выйти</a> {% else %} Вы можете <a href="{% url 'login' %}">войти</a> на сайт  {% endif %}  <br>
+    <h1> Список объявлений </h1>
     {% for announcement in announcement_list %}
         <div class="card mb-4">
             <div class="card-header">
@@ -18,8 +19,12 @@
             </div>
         </div>
     {% endfor %}
-    <form action="{% url 'create_announcement_url' %}" method="get">
-        <button class="btn btn-light" type="submit">Создать объявление</button>
-    </form>
+    {% if username %}
+        <form action="{% url 'create_announcement_url' %}" method="get">
+            <button class="btn btn-light" type="submit">Создать объявление</button>
+        </form>
+    {% else %}
+        <h5>Чтобы создать объявление, вам нужно войти на сайт.</h5>
+    {% endif %}
 </body>
 </html>
