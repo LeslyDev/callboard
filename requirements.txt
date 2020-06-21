@@ -1,0 +1,4 @@
+djongo
+redis
+django
+django_redis
