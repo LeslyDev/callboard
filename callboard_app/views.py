@@ -115,7 +115,7 @@ def announcement_detail(request, slug):
 
 
 def announcement_edit(request):
-    url = 'http://localhost:8000/list/'
+    url = 'http://' + request.headers['Host'] + '/list/'
     update_cache(url)
     form = AnnouncementForm()
     template = loader.get_template('announcement_edit.html')
@@ -134,7 +134,7 @@ def announcement_edit(request):
 
 
 def add_comment(request, slug):
-    url = 'http://localhost:8000/post/{}/'.format(slug)
+    url = 'http://' + request.headers['Host'] + '/post/{}/'.format(slug)
     update_cache(url)
     ann = Announcement.objects.get(slug__iexact=slug)
     Comment.objects.create(text=request.POST['text'], announcement=ann, author_of_comment=request.user)
@@ -142,7 +142,7 @@ def add_comment(request, slug):
 
 
 def add_tag(request, slug):
-    url = 'http://localhost:8000/post/{}/'.format(slug)
+    url = 'http://' + request.headers['Host'] + '/post/{}/'.format(slug)
     update_cache(url)
     ann = Announcement.objects.get(slug__iexact=slug)
     try:
