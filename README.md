@@ -2,7 +2,9 @@
 Django+Mongodb+Redis(for caching)
 
 Перед запуском приложения необходимо:
+
     1. pip install -r requirements.txt
+    
     2. Запустить докер контейнер с redis командой:
         docker run --name redis-instance --rm -d -p 6379:6379 redis:5.0.7 redis-server
     3. Запустить докер контейнер с базой данный Mongodb командой:
